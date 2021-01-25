@@ -186,7 +186,7 @@ searchResults(arg){
                 <button onClick={this.searchResults} className="btn searchBtnMini"><i className="fa fa-search"></i> </button>
             </div>
         </div>
-        <div className="col-md-6" id="collapsibleFilters" className="collapse">
+        <div className="col-md-6 collapse" id="collapsibleFilters" >
             <div className="input-group">
                     <span className="input-group-addon"><i className="fa fa-map-marker"></i></span>
                     <input id="location" type="text" className="form-control" name="email" placeholder="Filter by location" onChange={this.updateLocation}/>
