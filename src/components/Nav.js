@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
  class Nav extends Component{
      constructor(){
          super();
-const mq = window.matchMedia('(prefers-color-scheme: dark)');
-const useDarkMode = mq.matches;
+         var preference;
+         if(localStorage.getItem('colorPreference')){
+            preference= localStorage.getItem('colorPreference');
+         }else{
+            preference=window.matchMedia('(prefers-color-scheme: dark)');
+         }
+
+const useDarkMode = preference.matches;
          this.state={
              darkMode:useDarkMode
          }
@@ -18,9 +24,11 @@ const useDarkMode = mq.matches;
          if(this.state.darkMode===true){
             document.body.classList.add('light');
             document.body.classList.remove('dark');
+            localStorage.setItem("colorPreference","light");
          }else{
             document.body.classList.add('dark');
             document.body.classList.remove('light');
+            localStorage.setItem("colorPreference","dark");
          }
         
 
