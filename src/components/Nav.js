@@ -4,15 +4,22 @@ import { Link } from "react-router-dom";
      constructor(){
          super();
          var preference;
+         var useDarkMode;
          if(localStorage.getItem('colorPreference')){
-            preference= localStorage.getItem('colorPreference');
+            if (localStorage.getItem('colorPreference')=='dark'){
+                preference=true
+            }else{
+                preference=false
+                document.body.classList.add('light');
+            }
          }else{
             preference=window.matchMedia('(prefers-color-scheme: dark)');
+            preference = preference.matches;
          }
 
-const useDarkMode = preference.matches;
+
          this.state={
-             darkMode:useDarkMode
+             darkMode:preference
          }
          this.changeMode= this.changeMode.bind(this)
      }
