@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
          var preference;
          var useDarkMode;
          if(localStorage.getItem('colorPreference')){
-            if (localStorage.getItem('colorPreference')=='dark'){
+            if (localStorage.getItem('colorPreference')==='dark'){
                 preference=true
             }else{
                 preference=false
